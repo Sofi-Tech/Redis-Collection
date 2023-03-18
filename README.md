@@ -10,19 +10,11 @@
 
 </div>
 
-## Steps after creating a repo with this template
-
-1. Find and replace all instances of `template` with the package name.
-2. remove `true ||` from workflows
-3. Ensure branch protection is on
-4. Enable Codecov for the repository
-5. Remove this section from the README
-
 ## Description
 
-A description of the package.
+`redis-collection` is a powerful async utility data structure using redis.
 
-Read Full Documentation [here](https://template.js.org/).
+This package was inspired by [@discordjs/collection](https://npmjs.com/package/@discordjs/collection).
 
 ## Features
 
@@ -32,16 +24,16 @@ Read Full Documentation [here](https://template.js.org/).
 
 ## Install
 
-You can use the following command to install this package, or replace npm install with your package manager of choice.
-
-```bash
-npm i redis-collection
+```sh-session
+npm install redis-collection
+yarn add redis-collection
+pnpm add redis-collection
 ```
 
 ## Usage
 
 ```ts
-import { fn } from 'template';
+import { RedisCollection } from 'redis-collection';
 ```
 
 ## Contributors ✨
