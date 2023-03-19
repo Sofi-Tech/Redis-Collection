@@ -67,23 +67,23 @@ jobs:
             - name: Build Code
               run: yarn build
 
-    Upload_Coverage_Report:
-        name: Upload coverage report to codecov
-        needs: [Testing]
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout Project
-              uses: actions/checkout@24cb9080177205b6e8c946b17badbe402adc938f # v3
-              with:
-                  fetch-depth: 2
-            - name: Download Coverage report
-              uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3
-              with:
-                  name: coverage
-                  path: coverage/
-            - name: Codecov Upload
-              uses: codecov/codecov-action@d9f34f8cd5cb3b3eb79b3e4b5dae3a16df499a70 # tag=v3
-              with:
-                  token: ${{ secrets.CODECOV_TOKEN }}
-                  directory: coverage/
-                  fail_ci_if_error: true
+    # Upload_Coverage_Report:
+    #     name: Upload coverage report to codecov
+    #     needs: [Testing]
+    #     runs-on: ubuntu-latest
+    #     steps:
+    #         - name: Checkout Project
+    #           uses: actions/checkout@24cb9080177205b6e8c946b17badbe402adc938f # v3
+    #           with:
+    #               fetch-depth: 2
+    #         - name: Download Coverage report
+    #           uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3
+    #           with:
+    #               name: coverage
+    #               path: coverage/
+    #         - name: Codecov Upload
+    #           uses: codecov/codecov-action@d9f34f8cd5cb3b3eb79b3e4b5dae3a16df499a70 # tag=v3
+    #           with:
+    #               token: ${{ secrets.CODECOV_TOKEN }}
+    #               directory: coverage/
+    #               fail_ci_if_error: true

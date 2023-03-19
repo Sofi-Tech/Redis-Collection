@@ -5,7 +5,9 @@
 **Async utility data structure using redis.**
 
 [![GitHub](https://img.shields.io/github/license/Sofi-Tech/Redis-Collection)](https://github.com/Sofi-Tech/Redis-Collection/blob/main/LICENSE)
-[![codecov](https://codecov.io/gh/Sofi-Tech/Redis-Collection/branch/main/graph/badge.svg?token=token)](https://codecov.io/gh/Sofi-Tech/Redis-Collection)
+
+<!-- [![codecov](https://codecov.io/gh/Sofi-Tech/Redis-Collection/branch/main/graph/badge.svg?token=token)](https://codecov.io/gh/Sofi-Tech/Redis-Collection) -->
+
 [![npm](https://img.shields.io/npm/v/redis-collection?color=crimson&logo=npm&style=flat-square)](https://www.npmjs.com/package/redis-collection)
 
 </div>
@@ -16,6 +18,11 @@
 
 This package was inspired by [@discordjs/collection](https://npmjs.com/package/@discordjs/collection).
 
+TODO before stable 1.x release:
+
+-   [ ] Add type tests
+-   [ ] Add redis cluster support
+
 ## Features
 
 -   Written In Typescript
@@ -24,7 +31,7 @@ This package was inspired by [@discordjs/collection](https://npmjs.com/package/@
 
 ## Install
 
-```sh-session
+```bash
 npm install redis-collection
 yarn add redis-collection
 pnpm add redis-collection
