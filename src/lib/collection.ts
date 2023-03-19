@@ -1,6 +1,6 @@
 import { Collection, type ReadonlyCollection } from '@discordjs/collection';
 
-import type { Serialized } from './utils.js';
+import type { Serialize } from './serialize.js';
 import type { Redis } from 'ioredis';
 import type { Buffer } from 'node:buffer';
 
@@ -9,7 +9,7 @@ const customInspectSymbol = Symbol.for('nodejs.util.inspect.custom');
 /**
  * @internal
  */
-export interface RedisCollectionOptions<T, ReturnType = Serialized<T>> {
+export interface RedisCollectionOptions<T, ReturnType = Serialize<T>> {
 	/**
 	 * Deserialize values before returning them from Redis
 	 */
@@ -31,7 +31,7 @@ export interface RedisCollectionOptions<T, ReturnType = Serialized<T>> {
 /**
  * @internal
  */
-export interface RedisCollectionConstructor<V, ReturnType = Serialized<V>> {
+export interface RedisCollectionConstructor<V, ReturnType = Serialize<V>> {
 	new (options: RedisCollectionOptions<V, ReturnType>, entries?: readonly (readonly [string, V])[] | null): RedisCollection<V, ReturnType>;
 	new (options: RedisCollectionOptions<V, ReturnType>, iterable: Iterable<readonly [string, V]>): RedisCollection<V, ReturnType>;
 	readonly prototype: RedisCollection<V, ReturnType>;
@@ -40,7 +40,7 @@ export interface RedisCollectionConstructor<V, ReturnType = Serialized<V>> {
 /**
  * Represents an immutable version of a collection
  */
-export type ReadonlyRedisCollection<V, ReturnType = Serialized<V>> = Omit<
+export type ReadonlyRedisCollection<V, ReturnType = Serialize<V>> = Omit<
 	RedisCollection<V, ReturnType>,
 	'delete' | 'ensure' | 'forEach' | 'reverse' | 'set' | 'sort' | 'sweep'
 >;
@@ -50,7 +50,7 @@ export type ReadonlyRedisCollection<V, ReturnType = Serialized<V>> = Omit<
  *
  * @internal
  */
-export interface RedisCollection<V, ReturnType = Serialized<V>> {
+export interface RedisCollection<V, ReturnType = Serialize<V>> {
 	constructor: RedisCollectionConstructor<V, ReturnType>;
 }
 
@@ -58,9 +58,9 @@ export interface RedisCollection<V, ReturnType = Serialized<V>> {
  * A Map like async structure with additional utility methods.
  *
  * @typeParam V - The value type this collection holds
- * @typeParam ReturnType - The serialized value this collection returns
+ * @typeParam ReturnType - The serialize value this collection returns
  */
-export class RedisCollection<V, ReturnType = Serialized<V>> {
+export class RedisCollection<V, ReturnType = Serialize<V>> {
 	/**
 	 * Hash being used to store data into
 	 */
@@ -1051,7 +1051,7 @@ export class RedisCollection<V, ReturnType = Serialized<V>> {
 	 * // returns RedisCollection { "a" => 3, "b" => 2 }
 	 * ```
 	 */
-	public static async combineEntries<V, ReturnType = Serialized<V>>(
+	public static async combineEntries<V, ReturnType = Serialize<V>>(
 		options: RedisCollectionOptions<V>,
 		entries: AsyncIterable<[string, ReturnType | V]> | Iterable<[string, ReturnType | V]>,
 		combine: (firstValue: ReturnType, secondValue: ReturnType | V, key: string) => V
