@@ -41,7 +41,7 @@
 		"access": "public"
 	},
 	"dependencies": {
-		"@discordjs/collection": "^1.5.0",
+		"@discordjs/collection": "^1.5.1",
 		"ioredis": "^5.3.2"
 	},
 	"devDependencies": {
