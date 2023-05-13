@@ -3,7 +3,8 @@
 	"compilerOptions": {
 		"types": ["vitest/globals"],
 		"target": "ES2022",
-		"module": "ESNext"
+		"module": "ESNext",
+		"skipLibCheck": true
 	},
 	"include": ["."]
 }

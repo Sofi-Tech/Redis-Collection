@@ -1,7 +1,7 @@
 import { Collection, type ReadonlyCollection } from '@discordjs/collection';
 
 import type { Serialize } from './serialize.js';
-import type { Redis } from 'ioredis';
+import type { Redis, Cluster } from 'ioredis';
 import type { Buffer } from 'node:buffer';
 
 const customInspectSymbol = Symbol.for('nodejs.util.inspect.custom');
@@ -21,7 +21,7 @@ export interface RedisCollectionOptions<T, ReturnType = Serialize<T>> {
 	/**
 	 * IORedis client instance
 	 */
-	redis: Redis;
+	redis: Cluster | Redis;
 	/**
 	 * Serialize values before inserting them into Redis
 	 */
@@ -69,7 +69,7 @@ export class RedisCollection<V, ReturnType = Serialize<V>> {
 	/**
 	 * IORedis client instance
 	 */
-	public readonly redis: Redis;
+	public readonly redis: Cluster | Redis;
 
 	/**
 	 * Serialize values before inserting them into Redis

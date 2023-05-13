@@ -20,8 +20,8 @@ This package was inspired by [@discordjs/collection](https://npmjs.com/package/@
 
 TODO before stable 1.x release:
 
--   [ ] Add type tests
--   [ ] Add redis cluster support
+-   [ ] Add type tests for all methods
+-   [ ] Add cluster tests
 
 ## Features
 

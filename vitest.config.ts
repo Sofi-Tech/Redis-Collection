@@ -7,6 +7,9 @@ export default defineConfig({
 			enabled: true,
 			reporter: ['text', 'lcov', 'clover'],
 			provider: 'c8'
+		},
+		typecheck: {
+			tsconfig: 'tests/tsconfig.json'
 		}
 	}
 });

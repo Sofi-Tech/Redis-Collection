@@ -19,6 +19,7 @@
 		"lint": "eslint src tests --fix --cache",
 		"format": "prettier --write . --cache",
 		"test": "vitest run",
+		"test:typecheck": "vitest typecheck --run",
 		"test:watch": "vitest",
 		"update": "yarn upgrade-interactive",
 		"build": "tsup",
