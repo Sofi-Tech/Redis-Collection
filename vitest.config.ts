@@ -6,7 +6,7 @@ export default defineConfig({
 		coverage: {
 			enabled: true,
 			reporter: ['text', 'lcov', 'clover'],
-			provider: 'c8'
+			provider: 'v8'
 		},
 		typecheck: {
 			tsconfig: 'tests/tsconfig.json'
