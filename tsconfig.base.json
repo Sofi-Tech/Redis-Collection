@@ -12,6 +12,7 @@
 		"noImplicitReturns": true,
 		"lib": ["es2021"],
 		"declaration": true,
+		"moduleResolution": "node",
 		"outDir": "dist"
 	},
 	"includes": ["src/**/*.ts"]
